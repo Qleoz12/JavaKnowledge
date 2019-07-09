@@ -6,3 +6,12 @@ if(patharchivo_excel.contains("\\\\"))
 	patharchivo_excel=patharchivo_excel.replaceAll(Pattern.quote("\\\\"),Matcher.quoteReplacement("/"));
 }
 
+
+// string to boolean cool way  and extensibble 
+private boolean convertToBoolean(String value) {
+    boolean returnValue = false;
+    if ("1".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value) || 
+        "true".equalsIgnoreCase(value) || "on".equalsIgnoreCase(value))
+        returnValue = true;
+    return returnValue;
+}
