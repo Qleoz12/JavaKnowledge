@@ -1,11 +1,11 @@
 # IBM JAVA terminology
 1. A binary operation which takes two given sets and yields a set made up of all the items in the first set that are not in the second set
 
-**Answer. Set difference**
+        **Answer. Set difference**
 
 2.  collection of key-value pairs that associate a key with a value
 
-**Answer. map**
+            **Answer. map**
 
 3.  a hierarchical structure  taht place the elements in nodes along  branches that originate from a root 
 
