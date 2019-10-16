@@ -1,12 +1,19 @@
 # IBM JAVA terminology
 1. A binary operation which takes two given sets and yields a set made up of all the items in the first set that are not in the second set
-   **Answer. Set difference**
+
+**Answer. Set difference**
+
 2.  collection of key-value pairs that associate a key with a value
-  **Answer. map**
+
+**Answer. map**
+
 3.  a hierarchical structure  taht place the elements in nodes along  branches that originate from a root 
-  **Answer. map**
+
+**Answer. map**
+
 4. a tree structure  in wich each node can have at most two children, and in which a unique path exist from the root to every other node  
  **Answer. map**
+
 5. a type of tree in which the key value of each node is less than every key value in its right subtree,and greater than every key value in its left subtree
 
 A binary tree in which ali the leaves are and ever,'
