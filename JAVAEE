@@ -1,0 +1,10 @@
+java criteria builder in count
+
+CriteriaQuery<Long> c = cb.createQuery(Long.class);
+Root<MedioContacto> mc = c.from(MedioContacto.class);
+c.select(cb.count(mc));
+List<Predicate> predicates = new ArrayList<Predicate>();
+    predicates.add(cb.equal(mc.get("entidad"), idEntidad));
+    predicates.add(cb.equal(mc.get("tipo"), 55));
+c.where(predicates.toArray(new Predicate[]{}));
+Integer cantidadMediosContacto = this.entityManager.createQuery(c).getSingleResult().intValue();
