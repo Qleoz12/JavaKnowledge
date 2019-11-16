@@ -8,3 +8,75 @@ List<Predicate> predicates = new ArrayList<Predicate>();
     predicates.add(cb.equal(mc.get("tipo"), 55));
 c.where(predicates.toArray(new Predicate[]{}));
 Integer cantidadMediosContacto = this.entityManager.createQuery(c).getSingleResult().intValue();
+
+
+
+
+RestClientConfiguration config = RestClientConfiguration.loadConfiguration("jasperserver.properties");;
+			JasperserverRestClient client = new JasperserverRestClient(config);
+			Session session = client.authenticate("jasperadmin", "jasperadmin");
+
+
+			ReportExecutionRequest reportExecRequest = new ReportExecutionRequest();
+
+			reportExecRequest.setReportUnitUri("/reports/historicoVentas");
+			reportExecRequest.setAsync(true);
+			reportExecRequest.setFreshData(false);
+			reportExecRequest.setSaveDataSnapshot(false);
+			reportExecRequest.setOutputFormat(ReportOutputFormat.XLSX);
+			reportExecRequest.setInteractive(true);
+			reportExecRequest.setIgnorePagination(false);
+			
+			ReportExecutionDescriptor entity = session
+			        .reportingService()
+			        .newReportExecutionRequest(reportExecRequest)
+			        .getEntity();
+
+
+			String expId = entity.getExports().get(0).getId();
+			String reqId = entity.getRequestId();
+
+			logger.info(session.getStorage().getSessionId());
+			String status=null;
+
+			times=0;
+			while(times<100 && !status.equalsIgnoreCase(ExecutionStatus.ready.toString())) 
+			{
+				TimeUnit.SECONDS.sleep(5);
+				status = session.reportingService()
+				        .reportExecutionRequest(reqId)
+				        .export(expId)
+				        .status()
+				        .getEntity()
+				        .getValue();
+				times++;
+			}
+			
+			if(times>=10 && !status.equalsIgnoreCase(ExecutionStatus.ready.toString()))
+			{
+				this.jsfMessageSender.sendErrorMessage(BundleMessage.Error.UNDEFINED_ERROR);
+			}
+			
+	        
+	        OperationResult<InputStream> operationResult =
+	                session
+	                        .reportingService()
+	                        .reportExecutionRequest(reqId)
+	                        .export(expId)
+	                        .outputResource();
+
+	        InputStream file = operationResult.getEntity();
+			
+	        
+	        FacesContext facesContext = FacesContext.getCurrentInstance();
+			ExternalContext externalContext = facesContext.getExternalContext();
+			externalContext.responseReset();
+			externalContext.setResponseContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+			externalContext.setResponseHeader("Content-Disposition",
+					"attachment; filename=" +"HistoricoVentas"+ "\\.xlsx");
+			OutputStream out = externalContext.getResponseOutputStream();
+			IOUtils.copy(file,out);
+			facesContext.responseComplete();
+			out.flush();
+			out.close();
+			
