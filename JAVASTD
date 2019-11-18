@@ -1,0 +1,8 @@
+//best way get value from enums
+//inspired by https://github.com/apache/commons-lang/blob/3a818ed6a833f083a2db9bb6804c1bdb43b9b0ec/src/main/java/org/apache/commons/lang3/EnumUtils.java#L89
+try {
+					 reportExecRequest.setOutputFormat(Enum.valueOf(ReportOutputFormat.class, tipo));
+  
+			        } catch (final IllegalArgumentException ex) {
+			        	 reportExecRequest.setOutputFormat(ReportOutputFormat.DOCX);
+			        }
