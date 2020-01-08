@@ -14,3 +14,10 @@ try {
 
 java.util.Date date = java.sql.Date.valueOf(localDate);
 LocalDate ld = new java.sql.Date(date.getTime()).toLocalDate();
+
+//Date to LocalDate
+Date date = new Date();
+LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//LocalDate to Date
+LocalDate localDate = LocalDate.now();
+Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
