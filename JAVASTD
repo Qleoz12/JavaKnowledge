@@ -6,3 +6,11 @@ try {
 			        } catch (final IllegalArgumentException ex) {
 			        	 reportExecRequest.setOutputFormat(ReportOutputFormat.DOCX);
 			        }
+				
+
+
+//LocalDate to java.util.Date and vice versa simplest conversion? [duplicate]
+//https://stackoverflow.com/questions/33066904/localdate-to-java-util-date-and-vice-versa-simplest-conversion
+
+java.util.Date date = java.sql.Date.valueOf(localDate);
+LocalDate ld = new java.sql.Date(date.getTime()).toLocalDate();
