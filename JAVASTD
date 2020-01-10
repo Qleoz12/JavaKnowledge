@@ -21,3 +21,6 @@ LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDat
 //LocalDate to Date
 LocalDate localDate = LocalDate.now();
 Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+// with time 
+Date date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant())
