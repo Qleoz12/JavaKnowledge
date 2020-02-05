@@ -79,4 +79,30 @@ RestClientConfiguration config = RestClientConfiguration.loadConfiguration("jasp
 			facesContext.responseComplete();
 			out.flush();
 			out.close();
-			
+
+
+//consulta de JPa agregando  criterios al on de las relaciones JPA 
+select 
+new co.inv.commons.TurnoPersonaDTO(tp.idTurnoPersona,
+									t.idTurno,
+									t.turno,
+									tp.idEntidadLogueada, 
+									tp.idPersona,
+									tp.idOpcion,
+									tp.created,
+									tp.createdBy,
+									tp.updated,
+									tp.updatedBy) 
+from TurnosPersona tp 
+inner join tp.turno t
+join t.parqueaderosYZona pyz on (pyz.idParqueadero=:idParqueadero)
+where 
+tp.idPersona= :entidadLogueada
+and tp.idOpcion= :idOpcion
+and t.idTurno not in (select tt.idTurno	
+					  from TurnosPersona tpp 
+					  inner join tpp.turno tt 
+					  where tpp.idPersona= :entidadSeleccionada)
+
+
+
