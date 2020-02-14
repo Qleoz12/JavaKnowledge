@@ -24,3 +24,17 @@ Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()
 
 // with time 
 Date date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant())
+
+
+// unir dos DATes y crear un LocalDateTime de java8
+
+DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+DateFormat dateFormat2 = new SimpleDateFormat("hh:mm:ss");
+String strDate=dateFormat.format(fechaInicio)+" "+dateFormat2.format(datei); 
+LocalDateTime ffi= LocalDateTime.parse(strDate, fmt);
+strDate=dateFormat.format(fechaFin)+" "+dateFormat2.format(datef);
+LocalDateTime fff= LocalDateTime.parse(strDate, fmt);
+
+
+
