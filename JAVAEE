@@ -105,4 +105,14 @@ and t.idTurno not in (select tt.idTurno
 					  where tpp.idPersona= :entidadSeleccionada)
 
 
+----------------------------------------------------------------
+---info of JAX-WS
+ Una implementación de un servicio Web JAX-WS reside en un contenedor Web, y por lo tanto puede desplegarse en un servidor Web 	 
+o un servidor de aplicaciones, una implementación EJB, en cambio, reside en un contenedor EJB y sólo podrá desplegarse en un 
+servidor de aplicaciones.
 
+La plataforma Java EE 6, soporta las siguientes implementaciones de servicios Web: como un componente Web JAX-WS en un contenedor de 
+Servlets, y como un componente EJB de sesión stateless o singleton.
+
+
+---continuar leyendo 
