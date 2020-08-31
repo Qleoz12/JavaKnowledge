@@ -1,0 +1,26 @@
+
+<!--  para evitar colisionde clases del mismo nombre y paquete en el caso de modelos canonicos -->
+<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>co.gov.fna.cim</pattern>
+                                    <shadedPattern>co.gov.fna.soap.client.cb.pn.infobasica.cim</shadedPattern>
+                                </relocation>   
+                                <relocation>
+                                    <pattern>co.gov.fna.esb</pattern>
+                                    <shadedPattern>co.gov.fna.soap.client.cb.pn.infobasica.esb</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
