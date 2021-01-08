@@ -1,0 +1,15 @@
+/**
+ * projecciones de querys directamente a DTOs
+ * con el contructor se puede manejar el llenado de objetos internos particulares
+ *  @Query anotacion de springboot 
+ *  @lombok puede quitar boilerplate  de constructores pero si se usa un generador de codigo hace mas facil 
+ */
+@Query("select new co.gov.fna.admincredito.DTO.ObligacionDTONOEntity(ob.idOblicacion,"
+	    		+ "	solcap.idSolicitud,ts.idTipoSector,ob.paqueteInformacionI,ob.identificadorLineaI,"
+	    		+ "ob.tipoContratoI,ob.estadoContratoI,ob.numeroObligacionIo,"
+	    		+ "ob.fechaCorteI,ob.afectado) "
+	    		+ "from Obligacion ob "
+	    		+ "join ob.solicitudCapacidad solcap "
+	    		+ "join ob.tipoSector ts "
+	    		+ "where solcap.idSolicitud= :solicitudCapacidad")
+		List<ObligacionDTONOEntity> findBySolicitudCapacidad2(String solicitudCapacidad);
