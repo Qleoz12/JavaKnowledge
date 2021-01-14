@@ -1,0 +1,73 @@
+ Arrays.sort(myArray);
+   System.out.println(myArray[myArray.length-1]);
+
+
+
+for ( int i=0; i < n ;i++){
+  for (int j=0;  j<n;j++){
+    dibujo[x][i] = "_";
+  }
+  dibujo[i][n - i - 1] = "X";
+  dibujo[i][i] = "X";  
+}
+
+for ( int i=0; i < n ;i++){
+    for (int j=0;  j<n;j++){
+      System.out.print(dibujo[x][i]);
+    }
+    System.out.println();
+  }
+
+
+
+int cola=n;
+int punta=0;
+for ( int i=0; i < n ;i++){
+    for (int j=0;  j<n;j++){
+      if(j==cola || j===punta) 
+      {System.out.print('X');}
+      else
+      {System.out.print('_');}
+    }
+    cola--;
+    punta++;
+  }
+
+
+  import java.util.*;
+
+  public class MyClass {
+      static int[] myArray = {1,2,2,4,5,6,7,8,8,8};
+      public static void main(String args[]) {
+      
+         Map<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
+          for ( Integer word : myArray ) {
+             Integer oldCount = occurrences.get(word);
+             if ( oldCount == null ) {
+                oldCount = 0;
+             }
+             occurrences.put(word, oldCount + 1);
+          }
+          //System.out.println(occurrences);
+          Integer Maxkey=occurrences.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey();
+          System.out.println("Longest: "+occurrences.get(Maxkey));
+          System.out.println("Number: "+Maxkey);
+      }
+  }
+
+
+  import java.util.*;
+
+  public class MyClass {
+      static String[] myArray = {"a", "b", "c", "d", "d", "c", "b", "a"};
+      public static void main(String args[]) {
+          String[] mirror=Arrays.copyOfRange(myArray,0,myArray.length/2);
+          String[] mirror2=Arrays.copyOfRange(myArray,myArray.length/2,myArray.length);
+          Collections.reverse(Arrays.asList(mirror2));
+          System.out.println(Arrays.toString(mirror));
+          System.out.println(Arrays.toString(mirror2));
+          System.out.println(Arrays.toString(mirror).equals(Arrays.toString(mirror2)));
+          String res=Arrays.toString(mirror).equals(Arrays.toString(mirror2))?"Symmetric":"Asymmetric";
+          System.out.println(res);
+      }
+  }
