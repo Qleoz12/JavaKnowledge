@@ -71,3 +71,30 @@ for ( int i=0; i < n ;i++){
           System.out.println(res);
       }
   }
+  
+  //histograma 
+  
+  public static void main (String args[]) {
+  
+     int  size=Arrays.stream(myArray).max().getAsInt();
+     Map<Integer, String> occurrences = new HashMap<Integer, String>();
+          for ( Integer word : myArray ) 
+          {  
+             String oldCount = null;
+             oldCount = occurrences.get(word);
+             if ( oldCount == null ) {
+                occurrences.put(word,  "*");
+                continue;
+             }
+             occurrences.put(word, oldCount + "*");
+          }
+        
+        //fill not present 
+        for (int x=1;x<= size;x++ )
+        {
+            String pos = occurrences.get(x);
+            if ( pos == null ) { System.out.println(x+": "); continue; }
+            System.out.println(x+": "+pos);
+        }
+}
+  
