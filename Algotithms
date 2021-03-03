@@ -1,3 +1,17 @@
+ 
+ 
+ 
+
+//¿Que interfaz es implementada por java.util.Hashtable? 
+		public class Hashtable<K,V>
+extends Dictionary<K,V>
+implements Map<K,V>, Cloneable, Serializable
+
+
+//	Que método se utiliza para iniciar la ejecución de un thread? 
+			metodo start.
+
+  
  Arrays.sort(myArray);
    System.out.println(myArray[myArray.length-1]);
 
