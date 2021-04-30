@@ -13,3 +13,84 @@
 	    		+ "join ob.tipoSector ts "
 	    		+ "where solcap.idSolicitud= :solicitudCapacidad")
 		List<ObligacionDTONOEntity> findBySolicitudCapacidad2(String solicitudCapacidad);
+
+
+
+@GetMapping(value = "/descararPDF", produces = "application/pdf")
+	public ResponseEntity<InputStreamResource> getFilePDF(@Param("path") String path) throws IOException {
+		log.info("el path es: " + path);
+
+		File fichero = new File(path);
+		// Set the input stream
+		InputStream inputstream = new FileInputStream(fichero);
+		// asume that it was a PDF file
+		HttpHeaders responseHeaders = new HttpHeaders();
+		InputStreamResource inputStreamResource = new InputStreamResource(inputstream);
+		responseHeaders.setContentLength(fichero.length());
+		responseHeaders.setContentType(MediaType.valueOf("application/pdf"));
+		return new ResponseEntity<InputStreamResource>(inputStreamResource, responseHeaders, HttpStatus.OK);
+
+	}
+
+	// @Produces("application/vnd.ms-excel")
+	@GetMapping(value = "/descargarXLS", produces = "application/vnd.ms-excel")
+	// @RequestMapping(value="/login", method = RequestMethod.GET, produces =
+	// MediaType.IMAGE_JPEG_VALUE))
+	public ResponseEntity getFileXLS(@Param("path") String path) throws IOException {
+
+		if (path.equals(Constants.ULTIMO_REPORTE_TRAMITES_XLSX)
+				|| path.equals(Constants.ULTIMO_REPORTE_TRAMITES_XLSX_MASIVO)) {
+			path = reportePorTramiteServicio.getRutaReporteTramites() + path;
+		}
+
+		File file = new File(path);
+
+		InputStream inputstream = new FileInputStream(file);
+		HttpHeaders responseHeaders = new HttpHeaders();
+		InputStreamResource inputStreamResource = new InputStreamResource(inputstream);
+		responseHeaders.setContentLength(file.length());
+		responseHeaders.setContentType(MediaType.valueOf("application/vnd.ms-excel"));
+
+		log.info("Antes de retornar el ARCHIVO xlsx");
+		return new ResponseEntity<InputStreamResource>(inputStreamResource, responseHeaders, HttpStatus.OK);
+
+	}
+
+	@GetMapping(value = "/descargarXLSX", produces = "application/vnd.ms-excel")
+	public ResponseEntity<InputStreamResource> getFileXLSX(@Param("path") String path) throws IOException {
+		log.info("en getFileXLSX1");
+		File file = new File(path);
+
+		InputStream inputstream = new FileInputStream(file);
+		HttpHeaders responseHeaders = new HttpHeaders();
+		InputStreamResource inputStreamResource = new InputStreamResource(inputstream);
+		responseHeaders.setContentLength(file.length());
+		responseHeaders.setContentType(MediaType.valueOf("application/vnd.ms-excel"));
+
+		log.info("antes de retornar xlsx");
+		return new ResponseEntity<InputStreamResource>(inputStreamResource, responseHeaders, HttpStatus.OK);
+
+		// ResponseEntity response = ResponseEntity.ok((Object) file);
+
+		// response.getHeaders().add("Content-Disposition", "attachment;
+		// filename=\"reporteFisico2.xlsx\"");
+		/// new Thread(d).start();
+		/// response.header("Content-Disposition", "attachment;
+		/// filename=\"reporteFisico2.xlsx\"");
+
+		// return response;
+	}
+
+	@GetMapping(value = "/descargarTXT", produces = "text/plain")
+	public ResponseEntity<InputStreamResource> getFileTxt(@Param("path") String path) throws IOException {
+		log.info("en getFileTxt1");
+		File file = new File(path);
+		InputStream inputstream = new FileInputStream(file);
+		HttpHeaders responseHeaders = new HttpHeaders();
+		InputStreamResource inputStreamResource = new InputStreamResource(inputstream);
+		responseHeaders.setContentLength(file.length());
+		responseHeaders.setContentType(MediaType.valueOf("text/plain"));
+
+		log.info("antes de retornar txt");
+		return new ResponseEntity<InputStreamResource>(inputStreamResource, responseHeaders, HttpStatus.OK);
+	}
