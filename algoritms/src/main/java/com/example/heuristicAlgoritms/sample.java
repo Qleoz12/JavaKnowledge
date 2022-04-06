@@ -1,3 +1,5 @@
+package com.example.heuristicAlgoritms;
+
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -74,7 +76,7 @@ public class sample {
     	 List<Pieza> piezasRespuesta=new ArrayList<Pieza>();
          //area total del edificio o tablero
          double areatototal= edificio.getAnchoEdicicio()*edificio.getLargoEdicicio();
-         //se ordena por el mejor criterio de beneficio por tamaño //reversedes para ordenar de mayor a menr
+         //se ordena por el mejor criterio de beneficio por tamaï¿½o //reversedes para ordenar de mayor a menr
          Collections.sort(edificio.getPiezasMoldelos(), Comparator.comparing(Pieza::getCriteriobeneficio).reversed());
          
          //imprimo resultado de ordenamiento

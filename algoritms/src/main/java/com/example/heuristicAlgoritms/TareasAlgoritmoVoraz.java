@@ -1,3 +1,5 @@
+package com.example.heuristicAlgoritms;
+
 import java.util.*;
 import java.util.stream.Collectors;
 

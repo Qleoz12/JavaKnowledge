@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="crypto/src/test/java/|crypto/src/main/java/|heuristicAlgoritms/|src/heuristicAlgoritms/|src/|concurrentAlgorithms/|src/concurrentAlgorithms/" kind="src" path=""/>
+	<classpathentry kind="src" path="concurrentAlgorithms"/>
+	<classpathentry kind="src" path="crypto/src/main/java"/>
+	<classpathentry kind="src" path="crypto/src/test/java"/>
+	<classpathentry kind="src" path="heuristicAlgoritms"/>
+	<classpathentry excluding="heuristicAlgoritms/|concurrentAlgorithms/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/concurrentAlgorithms"/>
+	<classpathentry kind="src" path="src/heuristicAlgoritms"/>
+	<classpathentry kind="output" path="crypto/target/classes"/>
+</classpath>

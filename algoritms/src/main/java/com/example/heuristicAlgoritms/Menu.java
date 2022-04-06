@@ -1,3 +1,5 @@
+package com.example.heuristicAlgoritms;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
