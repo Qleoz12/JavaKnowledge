@@ -1,0 +1,34 @@
+Modern Java in Action Lambdas, streams, functional and reactive programmin
+
+    java previus version 
+
+    java 1.7 
+
+        invokedynamic?
+
+    java 1.8
+
+    - improve in the creaton of comparator
+
+        before
+
+        Collections.sort(inventory, new Comparator<Apple>() {
+        public int compare(Apple a1, Apple a2){
+        return a1.getWeight().compareTo(a2.getWeight());
+        }
+        });
+
+        current
+        inventory.sort(comparing(Apple::getWeight));
+
+        tip  don use synchronized error-prone
+
+        before none 
+        after default methods in interfaces.
+
+        before alot fors 
+        after functional-style programming
+
+        programming concepts
+        tip stream Processing was inspired  cat file1 file2 | tr "[A-Z]" "[a-z]" | sort | tail -
+        tip Passing code to methods with behavior parameterization
