@@ -32,3 +32,29 @@ Modern Java in Action Lambdas, streams, functional and reactive programmin
         programming concepts
         tip stream Processing was inspired  cat file1 file2 | tr "[A-Z]" "[a-z]" | sort | tail -
         tip Passing code to methods with behavior parameterization
+
+        a oportunuty for create a components with mix paradigms funtional and oriented ojects
+        Java 8 adds functions as new forms of value
+        Java 8 provides to exploit parallel programming on multicore processors
+        method references.
+        remove verbose wraperss for improve onelinecode
+        In Java 8 you can pass the isHidden function to the listFiles method using the method reference :: syntax.
+        static <T> Collection<T> filter(Collection<T> c, Predicate<T> p);
+        Java 8 by default methods.55
+        an interface can now contain method signatures for which an implementing class doesn’t provide an implementation
+        
+        Java has mechanisms called anonymous classes, which let you declare and instantiate a class at the same time. They enable
+        you to improve your code one step further by making it a little more concise.
+
+        now also have default methods (a method with a body that provides some default implementation for a
+        method in case it isn’t implemented by a class). An interface is still a functional interface if it has many default methods as long as it specifies only one
+        abstract method. 
+
+        Using functional interfaces
+        Predicate ==> accepts an object of generic type T and returns a boolean                                             test()
+        Consumer  ==> accept that takes an object of generic type T and returns no result (void).                           accepts()
+        Function  ==> apply that takes an object of generic type T as input and returns an object of generic type R.        apply()  
+
+        Java 8 code: method references. Think of them as shorthand versions of certain lambdas
+
+        Keep in mind that you can consume a stream only once! 
