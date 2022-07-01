@@ -3,14 +3,8 @@ package com.example.restservice.api;
 import org.apache.commons.codec.binary.Hex;
 
 import javax.crypto.Mac;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 
 
 public class signatureGenerator

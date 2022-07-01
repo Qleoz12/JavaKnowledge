@@ -90,14 +90,16 @@ public class TaxCalculator {
     double value = TaxCalculator.calculate(order, true, false, true);
     System.out.printf("Boolean arguments: %.2f%n", value);
 
-    value = new TaxCalculator().withTaxRegional()
-        .withTaxSurcharge()
-        .calculate(order);
+    value = new TaxCalculator()
+            .withTaxRegional()
+            .withTaxSurcharge()
+            .calculate(order);
     System.out.printf("Method chaining: %.2f%n", value);
 
-    value = new TaxCalculator().with(Tax::regional)
-        .with(Tax::surcharge)
-        .calculateF(order);
+    value = new TaxCalculator()
+            .with(Tax::regional)
+            .with(Tax::surcharge)
+            .calculateF(order);
     System.out.printf("Method references: %.2f%n", value);
   }
 

@@ -34,3 +34,6 @@ algoritms/target
 /dist/
 /nbdist/
 /.nb-gradle/
+
+crypto/.gradle/*
+/crypto/.gradle

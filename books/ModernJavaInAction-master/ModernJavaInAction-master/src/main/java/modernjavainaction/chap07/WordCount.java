@@ -59,6 +59,8 @@ public class WordCount {
     }
 
     public WordCounter accumulate(Character c) {
+      //System.out.println(c);
+      //System.out.println(lastSpace);
       if (Character.isWhitespace(c)) {
         return lastSpace ? this : new WordCounter(counter, true);
       }
