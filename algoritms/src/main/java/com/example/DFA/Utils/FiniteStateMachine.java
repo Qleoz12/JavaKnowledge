@@ -1,5 +1,8 @@
 package com.example.DFA.Utils;
 
+import java.util.List;
+import java.util.function.Predicate;
+
 /**
  * Finite state machine.
  */
@@ -19,6 +22,8 @@ public interface FiniteStateMachine {
     boolean canStop();
 
     State getState();
+
+
 
 
 }
