@@ -54,6 +54,9 @@ public class ObjectAndAttribAndVariableAndMethodIdentifierValidator {
         first = first.with(new RtTransition("_", second));
         first = first.with(new RtTransition("$", second));
 
+        second = second.with(new RtTransition("_", second));
+        second = second.with(new RtTransition("$", second));
+
         second.with(new RtTransition(" ",third));
 
 

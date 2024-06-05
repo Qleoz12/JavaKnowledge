@@ -32,6 +32,7 @@ public class Recursion {
   }
 
   public static long factorialHelper(long acc, long n) {
+    System.out.println(acc+" "+n);
     return n == 1 ? acc : factorialHelper(acc * n, n - 1);
   }
 

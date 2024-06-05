@@ -1,6 +1,6 @@
 package com.example.restservice.api;
 
-import org.apache.commons.codec.binary.Hex;
+//import org.apache.commons.codec.binary.Hex;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -17,8 +17,8 @@ public class signatureGenerator
         Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
         SecretKeySpec secret_key = new SecretKeySpec(key.getBytes("UTF-8"), "HmacSHA256");
         sha256_HMAC.init(secret_key);
-
-        return Hex.encodeHexString(sha256_HMAC.doFinal(data.getBytes("UTF-8")));
+        return null;
+       // return Hex.encodeHexString(sha256_HMAC.doFinal(data.getBytes("UTF-8")));
     }
 
     public static void main(String[] args) {

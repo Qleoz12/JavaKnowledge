@@ -7,17 +7,32 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *digraph DFA {
- *     rankdir=LR;
- *     node [shape=circle];
- *     start [shape=point];
- *     start -> q0;
- *     q0 [style=""];
- *     q1 [shape=doublecircle];
- *     q0 -> q0 [label="0"];
- *     q0 -> q1 [label="1"];
- *     q1 -> q1 [label="0,1"];
+*
+*digraph vending_machine {
+ *   rankdir=LR;
+ *   node [shape=circle];
+ *   0 [label="0"];
+ *   1 [label="1"];
+ *   2 [label="2"];
+ *   3 [label="3"];
+ *   4 [label="4"];
+ *   5 [label="5", shape=doublecircle];
+ *   0 -> 1 [label="1"];
+ *   0 -> 2 [label="2"];
+ *   0 -> 5 [label="5"];
+ *   1 -> 2 [label="1"];
+ *   1 -> 3 [label="2"];
+ *   1 -> 5 [label="5"];
+ *   2 -> 3 [label="1"];
+ *   2 -> 4 [label="2"];
+ *   2 -> 5 [label="5"];
+ *   3 -> 4 [label="1"];
+ *   3 -> 5 [label="2"];
+ *   3 -> 5 [label="5"];
+ *   4 -> 5 [label="1,2,5"];
+ *   5 -> 5 [label="1,2,5"];
  * }
+ *
  * */
 public class automateDrinksSellerMachine {
 
@@ -62,7 +77,6 @@ public class automateDrinksSellerMachine {
                 }
 
             }
-
             FiniteStateMachineWithAditionalValidations machine= new RtFiniteStateMachineWithAditionalValidations(zero,new ArrayList<>());
             machine.AddiotonalValidations(s -> s.chars().map(Character::getNumericValue).sum() >= 5);
             return  machine;

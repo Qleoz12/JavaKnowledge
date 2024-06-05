@@ -46,7 +46,8 @@ public class ReadPositiveIntParam {
   public static int readDurationWithOptional(Properties props, String name) {
     return ofNullable(props.getProperty(name))
         .flatMap(ReadPositiveIntParam::s2i)
-        .filter(i -> i > 0).orElse(0);
+        .filter(i -> i > 0)
+            .orElse(0);
   }
 
   public static Optional<Integer> s2i(String s) {
